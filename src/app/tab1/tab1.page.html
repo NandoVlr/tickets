@@ -1,17 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bem-vindo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Escolha uma opção para continuar:</p>
+      <!-- Navegação para a página de emissão -->
+      <ion-button expand="block" routerLink="/tabs/tab2">Emitir Senha</ion-button>
+      <!-- Navegação para o painel de chamadas -->
+      <ion-button expand="block" routerLink="/tabs/tab3">Painel de Chamadas</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
