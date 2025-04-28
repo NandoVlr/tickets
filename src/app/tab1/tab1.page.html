@@ -20,8 +20,10 @@
         <ion-select-option value="Guichê 3">Guichê 3</ion-select-option>
       </ion-select>
       
+
       <ion-button expand="block" 
       (click)="chamarSenha(guicheSelecionado)"
+      [disabled]="!guicheSelecionado"
       >Chamar senha</ion-button>
     </ion-card-content>
   </ion-card>

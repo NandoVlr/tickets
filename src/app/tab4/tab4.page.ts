@@ -16,6 +16,9 @@ export class Tab4Page  {
   totalEmitidas: any;
   totalChamadas: any;
   mediaTempoEstimado: any;
+  mediaTempoEstimadoSG: any;
+  mediaTempoEstimadoSE: any;
+  mediaTempoEstimadoSP: any;
   relatorioDetalhado: any[] = [];
   relatorioDiario: any[] = [];
   relatorioMensal: any[] = [];
@@ -26,6 +29,9 @@ export class Tab4Page  {
     this.totalEmitidas = this.senhaService.getTotalSenhasEmitidas();
     this.totalChamadas = this.senhaService.getTotalSenhasChamadas();
     this.mediaTempoEstimado = this.senhaService.getMediaTempoEstimado();
+    this.mediaTempoEstimadoSG = this.senhaService.getMediaTempoEstimadoSG();
+    this.mediaTempoEstimadoSE = this.senhaService.getMediaTempoEstimadoSE();
+    this.mediaTempoEstimadoSP = this.senhaService.getMediaTempoEstimadoSP();
     this.relatorioDetalhado = this.senhaService.getSenhasDetalhadas();
     this.relatorioDiario = this.senhaService.getRelatorioDiario();
     this.relatorioMensal = this.senhaService.getRelatorioMensal();

@@ -5,12 +5,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
+<h1>Relatório diário:</h1>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Senhas Emitidas</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <p>Total: {{ totalEmitidas.SP + totalEmitidas.SE + totalEmitidas.SG }}</p>
       <p>Prioritário (SP): {{ totalEmitidas.SP }}</p>
       <p>Especial (SE): {{ totalEmitidas.SE }}</p>
       <p>Geral (SG): {{ totalEmitidas.SG }}</p>
@@ -22,6 +23,7 @@
       <ion-card-title>Senhas Chamadas</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <p>Total: {{ totalChamadas.SP + totalChamadas.SE + totalChamadas.SG }}</p>
       <p>Prioritário (SP): {{ totalChamadas.SP }}</p>
       <p>Especial (SE): {{ totalChamadas.SE }}</p>
       <p>Geral (SG): {{ totalChamadas.SG }}</p>
@@ -33,13 +35,16 @@
       <ion-card-title>Média de Tempo Estimado</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>{{ mediaTempoEstimado }} minutos</p>
+      <p>Total: {{ mediaTempoEstimado }} minutos</p>
+      <p>Prioritário (SP): {{ mediaTempoEstimadoSP }} minutos</p>
+      <p>Especial (SE): {{ mediaTempoEstimadoSE }} minutos</p>
+      <p>Geral (SG): {{ mediaTempoEstimadoSG }} minutos</p>
     </ion-card-content>
   </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Relatório Diário</ion-card-title>
+      <ion-card-title>Senhas detalhadas</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -54,10 +59,45 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+  <h1>Relatório mensal:</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Senhas Emitidas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Total: {{ totalEmitidas.SP + totalEmitidas.SE + totalEmitidas.SG }}</p>
+      <p>Prioritário (SP): {{ totalEmitidas.SP }}</p>
+      <p>Especial (SE): {{ totalEmitidas.SE }}</p>
+      <p>Geral (SG): {{ totalEmitidas.SG }}</p>
+    </ion-card-content>
+  </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Relatório Mensal</ion-card-title>
+      <ion-card-title>Senhas Chamadas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Total: {{ totalChamadas.SP + totalChamadas.SE + totalChamadas.SG }}</p>
+      <p>Prioritário (SP): {{ totalChamadas.SP }}</p>
+      <p>Especial (SE): {{ totalChamadas.SE }}</p>
+      <p>Geral (SG): {{ totalChamadas.SG }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Média de Tempo Estimado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Total: {{ mediaTempoEstimado }} minutos</p>
+      <p>Prioritário (SP): {{ mediaTempoEstimadoSP }} minutos</p>
+      <p>Especial (SE): {{ mediaTempoEstimadoSE }} minutos</p>
+      <p>Geral (SG): {{ mediaTempoEstimadoSG }} minutos</p>    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Senhas detalhadas</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>

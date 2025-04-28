@@ -145,6 +145,34 @@ export class SenhaService {
     const totalTempo = this.ultimasSenhas.reduce((sum, senha) => sum + (senha.tempoEstimado || 0), 0);
     return (totalTempo / this.ultimasSenhas.length).toFixed(2);
   }
+  getMediaTempoEstimadoSP() {
+    const senhasSP = this.senhasSP.concat(this.ultimasSenhas.filter(senha => senha.tipo === 'SP'));
+    
+    if (senhasSP.length === 0) return 0;
+    
+    const totalTempoSP = senhasSP.reduce((sum, senha) => sum + (senha.tempoEstimado || 0), 0);
+    return (totalTempoSP / senhasSP.length).toFixed(2);
+  }
+  
+  // Média de tempo estimado para o tipo SE
+  getMediaTempoEstimadoSE() {
+    const senhasSE = this.senhasSE.concat(this.ultimasSenhas.filter(senha => senha.tipo === 'SE'));
+    
+    if (senhasSE.length === 0) return 0;
+    
+    const totalTempoSE = senhasSE.reduce((sum, senha) => sum + (senha.tempoEstimado || 0), 0);
+    return (totalTempoSE / senhasSE.length).toFixed(2);
+  }
+  
+  // Média de tempo estimado para o tipo SG
+  getMediaTempoEstimadoSG() {
+    const senhasSG = this.senhasSG.concat(this.ultimasSenhas.filter(senha => senha.tipo === 'SG'));
+    
+    if (senhasSG.length === 0) return 0;
+    
+    const totalTempoSG = senhasSG.reduce((sum, senha) => sum + (senha.tempoEstimado || 0), 0);
+    return (totalTempoSG / senhasSG.length).toFixed(2);
+  }
   getSenhasDetalhadas() {
     const todasSenhas = [...this.senhasSP, ...this.senhasSE, ...this.senhasSG, ...this.ultimasSenhas];
     return todasSenhas.map(senha => ({
