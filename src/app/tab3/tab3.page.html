@@ -1,23 +1,47 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Painel de Chamadas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngFor="let senha of ultimasSenhas; let i = index">
-    <ion-card-header>
-      <ion-card-title>
-        <strong>Senha:</strong> {{ senha.numero }}
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Guichê:</strong> {{ senha.guiche }}</p>
-      <p><strong>Horário:</strong> {{ senha.hora }}</p>
-    </ion-card-content>
-  </ion-card>
 
+  <!-- Senha da vez -->
+  <div *ngIf="ultimasSenhas.length > 0">
+    <h2>🔔 Senha da vez</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <strong>Senha:</strong> {{ ultimasSenhas[0].numero }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Guichê:</strong> {{ ultimasSenhas[0].guiche }}</p>
+        <p><strong>Horário:</strong> {{ ultimasSenhas[0].hora }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <h3 style="margin-top: 20px;">📋 Últimas senhas chamadas</h3>
+
+    <!-- Outras senhas -->
+    <ion-card *ngFor="let senha of ultimasSenhas.slice(1)">
+      <ion-card-header>
+        <ion-card-title>
+          <strong>Senha:</strong> {{ senha.numero }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Guichê:</strong> {{ senha.guiche }}</p>
+        <p><strong>Horário:</strong> {{ senha.hora }}</p>
+        <p>Tempo: {{ senha.tempoEstimado }} minutos</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Se não tiver nenhuma senha -->
   <ion-text *ngIf="ultimasSenhas.length === 0">
     Nenhuma senha chamada ainda.
   </ion-text>
+
 </ion-content>

@@ -11,10 +11,19 @@
     </ion-card-header>
     <ion-card-content>
       <p>Escolha uma opção para continuar:</p>
-      <!-- Navegação para a página de emissão -->
-      <ion-button expand="block" routerLink="/tabs/tab2">Emitir Senha</ion-button>
-      <!-- Navegação para o painel de chamadas -->
-      <ion-button expand="block" routerLink="/tabs/tab3">Painel de Chamadas</ion-button>
+      
+     
+      <ion-select placeholder="Selecione o guichê"
+      [(ngModel)]="guicheSelecionado">
+        <ion-select-option value="Guichê 1">Guichê 1</ion-select-option>
+        <ion-select-option value="Guichê 2">Guichê 2</ion-select-option>
+        <ion-select-option value="Guichê 3">Guichê 3</ion-select-option>
+      </ion-select>
+      
+      <ion-button expand="block" 
+      (click)="chamarSenha(guicheSelecionado)"
+      >Chamar senha</ion-button>
     </ion-card-content>
   </ion-card>
+  
 </ion-content>

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Relatórios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Senhas Emitidas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Prioritário (SP): {{ totalEmitidas.SP }}</p>
+      <p>Especial (SE): {{ totalEmitidas.SE }}</p>
+      <p>Geral (SG): {{ totalEmitidas.SG }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Senhas Chamadas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Prioritário (SP): {{ totalChamadas.SP }}</p>
+      <p>Especial (SE): {{ totalChamadas.SE }}</p>
+      <p>Geral (SG): {{ totalChamadas.SG }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Média de Tempo Estimado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ mediaTempoEstimado }} minutos</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Relatório Diário</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let senha of relatorioDiario">
+          <ion-label>
+            <h3>{{ senha.numero }} ({{ senha.tipo }})</h3>
+            <p>Emissão: {{ senha.dataHoraEmissao }}</p>
+            <p>Chamado: {{ senha.dataHoraChamado || 'Não chamado' }}</p>
+            <p>Guichê: {{ senha.guiche || '---' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Relatório Mensal</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let senha of relatorioMensal">
+          <ion-label>
+            <h3>{{ senha.numero }} ({{ senha.tipo }})</h3>
+            <p>Emissão: {{ senha.dataHoraEmissao }}</p>
+            <p>Chamado: {{ senha.dataHoraChamado || 'Não chamado' }}</p>
+            <p>Guichê: {{ senha.guiche || '---' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
