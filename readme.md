@@ -45,6 +45,7 @@ Feito com Ionic + Angular para dispositivos móveis.
 
 ## 🚀 Como Rodar o Projeto
 - Pré-requisitos
+
 Node.js (versão 18 ou superior)
 
 NPM 
@@ -52,6 +53,7 @@ NPM
 Ionic CLI instalado globalmente (npm install -g @ionic/cli)
 
 - Instalação
+
 Clone o repositório (git clone https://github.com/NandoVlr/tickets.git)
 
 Acesse o diretório do projeto (cd tickets)
@@ -59,4 +61,5 @@ Acesse o diretório do projeto (cd tickets)
 Instale as dependências (npm install)
 
 - Executar o App
+
 Para rodar localmente em ambiente de desenvolvimento (ionic serve)
