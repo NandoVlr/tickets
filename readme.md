@@ -1,6 +1,7 @@
 # Tickets
 
 Este é um aplicativo para controle de atendimento em filas de laboratório. Ele permite a chamada e emissão de senhas, visualização do painel de chamadas e mais funcionalidades.
+
 Feito com Ionic + Angular para dispositivos móveis.
 
 ## 📋Funcionalidades
@@ -45,12 +46,16 @@ Feito com Ionic + Angular para dispositivos móveis.
 ## 🚀 Como Rodar o Projeto
 - Pré-requisitos
 Node.js (versão 18 ou superior)
+
 NPM 
+
 Ionic CLI instalado globalmente (npm install -g @ionic/cli)
 
 - Instalação
 Clone o repositório (git clone https://github.com/NandoVlr/tickets.git)
+
 Acesse o diretório do projeto (cd tickets)
+
 Instale as dependências (npm install)
 
 - Executar o App
