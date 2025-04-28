@@ -25,29 +25,29 @@ export class SenhaService {
     let sequencia = '';
     let tempoEstimado = 0;
   
-    // Calcula o tempo médio de atendimento conforme o tipo de senha
+
     if (tipo === 'SP') {
       this.sequenciaSP++;
       sequencia = this.sequenciaSP.toString().padStart(3, '0');
-      tempoEstimado = 15 + Math.floor(Math.random() * 11) - 5; // Tempo médio de SP com variação
+      tempoEstimado = 15 + Math.floor(Math.random() * 11) - 5; 
     } else if (tipo === 'SE') {
       this.sequenciaSE++;
       sequencia = this.sequenciaSE.toString().padStart(3, '0');
-      tempoEstimado = 1 + Math.floor(Math.random() * 5); // Tempo médio de SE com variação
+      tempoEstimado = 1 + Math.floor(Math.random() * 5); 
     } else if (tipo === 'SG') {
       this.sequenciaSG++;
       sequencia = this.sequenciaSG.toString().padStart(3, '0');
-      tempoEstimado = 5 + Math.floor(Math.random() * 7) - 3; // Tempo médio de SG com variação
+      tempoEstimado = 5 + Math.floor(Math.random() * 7) - 3; 
     }
   
     const senha = {
       numero: `${dataFormatada}-${tipo}${sequencia}`,
       tipo: tipo,
-      guiche: '', // vazio por enquanto
+      guiche: '', 
       hora: `${dataAtual.getHours().toString().padStart(2, '0')}:${dataAtual.getMinutes().toString().padStart(2, '0')}`,
       tempoEstimado: tempoEstimado,
-      dataHoraEmissao: dataAtual, // salva data e hora da emissão
-      dataHoraChamado: null        // só preenche quando for chamado
+      dataHoraEmissao: dataAtual, 
+      dataHoraChamado: null       
     };
   
     if (tipo === 'SP') this.senhasSP.push(senha);
@@ -61,26 +61,26 @@ export class SenhaService {
     let tempoMedio: number;
     
     if (tipoSenha === 'SP') {
-      // Senha Prioritária (SP): 15 minutos, com variação de + ou - 5 minutos
+      
       tempoMedio = 15;
-      const variacao = Math.floor(Math.random() * 11) - 5; // Variação de -5 a +5 minutos
+      const variacao = Math.floor(Math.random() * 11) - 5; 
       return tempoMedio + variacao;
     } else if (tipoSenha === 'SG') {
-      // Senha Geral (SG): 5 minutos, com variação de + ou - 3 minutos
+      
       tempoMedio = 5;
-      const variacao = Math.floor(Math.random() * 7) - 3; // Variação de -3 a +3 minutos
+      const variacao = Math.floor(Math.random() * 7) - 3; 
       return tempoMedio + variacao;
     } else if (tipoSenha === 'SE') {
-      // Senha para Retirada de Exames (SE): 1 minuto, mas pode variar até 5 minutos em 5% dos casos
+      
       if (Math.random() < 0.95) {
-        // 95% dos casos: tempo de atendimento será 1 minuto
+        
         return 1;
       } else {
-        // 5% dos casos: tempo de atendimento pode ser entre 1 e 5 minutos
+        
         return Math.floor(Math.random() * 5) + 1;
       }
     }
-    return 0; // Se o tipo de senha não for reconhecido, retorna 0
+    return 0; 
   }
 
   chamarSenha(guiche: string) {
@@ -103,9 +103,9 @@ export class SenhaService {
     }
   
     if (senhaChamanda) {
-      senhaChamanda.guiche = guiche; // Atribui o guichê à senha chamada
+      senhaChamanda.guiche = guiche; 
       senhaChamanda.dataHoraChamado = new Date(); 
-      alert(`A senha ${senhaChamanda.numero} foi chamada!`); // Exibe o tempo de atendimento no console
+      alert(`A senha ${senhaChamanda.numero} foi chamada!`); 
       this.ultimasSenhas.unshift(senhaChamanda);
       if (this.ultimasSenhas.length > 6) {
         this.ultimasSenhas.pop();
@@ -154,7 +154,7 @@ export class SenhaService {
     return (totalTempoSP / senhasSP.length).toFixed(2);
   }
   
-  // Média de tempo estimado para o tipo SE
+  
   getMediaTempoEstimadoSE() {
     const senhasSE = this.senhasSE.concat(this.ultimasSenhas.filter(senha => senha.tipo === 'SE'));
     
@@ -164,7 +164,7 @@ export class SenhaService {
     return (totalTempoSE / senhasSE.length).toFixed(2);
   }
   
-  // Média de tempo estimado para o tipo SG
+  
   getMediaTempoEstimadoSG() {
     const senhasSG = this.senhasSG.concat(this.ultimasSenhas.filter(senha => senha.tipo === 'SG'));
     

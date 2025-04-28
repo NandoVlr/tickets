@@ -6,7 +6,6 @@
 
 <ion-content class="ion-padding">
 
-  <!-- Senha da vez -->
   <div *ngIf="ultimasSenhas.length > 0">
     <h2>🔔 Senha da vez</h2>
 
@@ -24,7 +23,6 @@
 
     <h3 style="margin-top: 20px;">📋 Últimas senhas chamadas</h3>
 
-    <!-- Outras senhas -->
     <ion-card *ngFor="let senha of ultimasSenhas.slice(1)">
       <ion-card-header>
         <ion-card-title>
@@ -39,7 +37,6 @@
     </ion-card>
   </div>
 
-  <!-- Se não tiver nenhuma senha -->
   <ion-text *ngIf="ultimasSenhas.length === 0">
     Nenhuma senha chamada ainda.
   </ion-text>
